@@ -1,1 +1,1 @@
-# The purpose of this website to show lost peoples. I hope it will helpfull for the mankind. 
+# The purpose of this website to show lost people in India. I hope it will help people so that they can find their loved ones . 
