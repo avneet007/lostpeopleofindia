@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
   <title>Lost people of India</title>
   <meta charset="utf-8">
@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
-
 </head>
 <body>
 
@@ -57,10 +58,12 @@
 </nav>
 
   
-<div class="container">
-  <div class="row">
+<div class="container" ng-controller="myCtrl">
+
+   <div class="row">
     <div class="col-sm-4">
       <h3>Column 1</h3>
+       <h3>Column 1 {{firstName+" "+lastName}}</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     </div>
