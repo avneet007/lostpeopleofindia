@@ -26,41 +26,107 @@
       <ul id="login-dp" class="dropdown-menu">
         <li>
            <div class="row">
-              <div class="col-md-12" ng-submit="callDone">
+              <div class="col-md-12">
                             
-                 <form class="form" role="form"  accept-charset="UTF-8" id="login-nav" ng-submit="submit()">
+                 <form class="form" role="form"  accept-charset="UTF-8" id="login-nav" ng-submit="login()">
                     <div class="form-group">
                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                       <input type="email" class="form-control" id="exampleInputEmail2" ng-model="useremail" placeholder="Email address" required >
+                       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" ng-model="loginData.loginEmail" required >
                     </div>
                     <div class="form-group">
                        <label class="sr-only" for="exampleInputPassword2">Password</label>
-                       <input type="password" class="form-control" id="exampleInputPassword2"  ng-model="userepass"  placeholder="Password" required>
+                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" ng-model="loginData.loginPass" required>
                                              <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                     </div>
                     <div class="form-group">
                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
                     </div>
-                    <div class="checkbox">
-                       <label>
-                       <input type="checkbox"> keep me logged-in
-                       </label>
-                    </div>
+                    
                  </form>
               </div>
               <div class="bottom text-center">
-                New here ? <a href="#"><b>Join Us</b></a>
+                New here ? <a href="#signupbox" ng-click="singupform = !singupform"><b>Join Us</b></a>
               </div>
            </div>
         </li>
       </ul>
+
+
   </div>
 </nav>
+
+
+
+
+ <div  ng-show="singupform" style="display:block; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title">Sign Up</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In</a></div>
+                        </div>  
+                        <div class="panel-body" >
+                            <form id="signupform" class="form-horizontal" role="form" ng-submit="register()">
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                  
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address" ng-model="userSingUpData.email">
+                                    </div>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="firstname" class="col-md-3 control-label">Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="firstname" placeholder="First Name" ng-model="userSingUpData.userName">
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="passwd" placeholder="Password" ng-model="userSingUpData.userPass">
+                                    </div>
+                                </div>
+
+                                 <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Confirm Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="passwd" placeholder="Password">
+                                    </div>
+                                </div>
+                                    
+                              
+                                <div class="form-group">
+                                    <!-- Button -->                                        
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-signup" type="submit" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                            </form>
+                         </div>
+                    </div>
+
+               
+               
+                
+         </div> 
+
+
+ 
+
 
   
 <div class="container" >
 
-   <div class="row">
+   <!-- <div class="row">
     <div class="col-sm-4">
       <h3>Column 1</h3>
        <h3>Column 1 {{firstName+" "+lastName}}</h3>
@@ -78,7 +144,7 @@
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     </div>
   </div>
-</div>
+</div> -->
 </div>
 
 </body>

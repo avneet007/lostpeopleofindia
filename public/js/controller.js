@@ -1,14 +1,63 @@
 var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
+app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
+    $scope.singupform = false;
+    $scope.singIn = false;
 
-     $scope.submit = function() {
+    $scope.userSingUpData = {
 
-     	console.log($scope.useremail+$scope.userepass);
-       /* if ($scope.text) {
-          $scope.list.push(this.text);
-          $scope.text = '';
-        }*/
+    	email : "",
+    	userName:"",
+    	userPass : ""
+        
+    }
+
+     $scope.loginData = {
+
+    	loginEmail : "",
+    	loginPass : ""
+        
+    }
+
+
+
+     $scope.login = function() {
+    
+        $http({
+        method: 'POST',
+        url: 'http://localhost:3000/login',
+        data:$scope.loginData,
+        headers: {'Content-Type': 'application/json'}
+         }).success(function (data, status, headers, config) {
+        // handle success things
+       }).error(function (data, status, headers, config) {
+        // handle error things
+       });
+
+
+
+
       };
-});
+
+
+
+    $scope.register = function(){
+
+          //console.log($scope.userSingUpData);
+
+        $http({
+        method: 'POST',
+        url: 'http://localhost:3000/register',
+        data:$scope.userSingUpData,
+        headers: {'Content-Type': 'application/json'}
+         }).success(function (data, status, headers, config) {
+        // handle success things
+       }).error(function (data, status, headers, config) {
+        // handle error things
+       });
+
+    }
+
+
+}]);
