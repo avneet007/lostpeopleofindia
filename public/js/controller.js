@@ -21,6 +21,16 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
     }
 
 
+     $scope.resetpassword = {
+
+        resetEmail : "",
+               
+    }
+
+
+
+
+
 
      $scope.login = function() {
     
@@ -34,9 +44,6 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
        }).error(function (data, status, headers, config) {
         // handle error things
        });
-
-
-
 
       };
 
@@ -58,6 +65,29 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
        });
 
     }
+
+
+  
+     $scope.resetPassword = function(){
+
+          //console.log($scope.userSingUpData);
+
+        $http({
+        method: 'POST',
+        url: 'http://localhost:3000/resetpassword',
+        data:$scope.resetpassword,
+        headers: {'Content-Type': 'application/json'}
+         }).success(function (data, status, headers, config) {
+        // handle success things
+       }).error(function (data, status, headers, config) {
+        // handle error things
+       });
+
+    }
+
+
+
+
 
 
 }]);
