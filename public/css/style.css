@@ -3,6 +3,8 @@ body{
     padding:50px;
 }
 
+
+
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
@@ -53,3 +55,31 @@ body{
         border-top:0 none;
     }
 }
+
+
+.span9{
+
+    float: left;
+}
+
+
+
+
+/*.thumb{
+    margin:5px;
+    float:left;
+}
+
+.uploader{
+    clear:both;
+}*/
+
+.uploadContainer{
+
+    background-color: white;
+}
+/*
+.form-actions{
+
+    margin-left: 10px;
+}*/

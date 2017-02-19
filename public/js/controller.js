@@ -29,6 +29,7 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
 
 
     $scope.logInButton=true;
+    $scope.uploadContainerVisibility=false;
     
    
 
@@ -43,13 +44,15 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
         headers: {'Content-Type': 'application/json'}
          }).success(function (data, status, headers, config) {
 
-             console.log(data.name);
-
+            
             $scope.logInButton=false;
             $scope.logOutButton=true;
             $scope.userNameDropDown=true;
             $scope.UserName=data.name;
             $scope.loginbox=false;
+
+             $scope.addbutton=true;
+    
 
     
         // handle success things
@@ -98,7 +101,19 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
     }
 
 
+    $scope.stepsModel = [];
 
+    $scope.imageUpload = function(element){
+        var reader = new FileReader();
+        reader.onload = $scope.imageIsLoaded;
+        reader.readAsDataURL(element.files[0]);
+    }
+
+    $scope.imageIsLoaded = function(e){
+        $scope.$apply(function() {
+            $scope.stepsModel.push(e.target.result);
+        });
+    }
 
 
 
