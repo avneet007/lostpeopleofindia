@@ -28,7 +28,9 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
     }
 
 
-
+    $scope.logInButton=true;
+    
+   
 
 
 
@@ -40,6 +42,16 @@ app.controller('myCtrl',  ['$scope', '$http', function ($scope, $http) {
         data:$scope.loginData,
         headers: {'Content-Type': 'application/json'}
          }).success(function (data, status, headers, config) {
+
+             console.log(data.name);
+
+            $scope.logInButton=false;
+            $scope.logOutButton=true;
+            $scope.userNameDropDown=true;
+            $scope.UserName=data.name;
+            $scope.loginbox=false;
+
+    
         // handle success things
        }).error(function (data, status, headers, config) {
         // handle error things

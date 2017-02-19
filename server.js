@@ -148,7 +148,9 @@ app.post('/login', function(req, res) {
 
                        if(String(docs[0].password)==String(req.body.loginPass)){
 
-                       	    res.send("registered user found");
+                       	   
+                            res.send({name:docs[0].name})
+
                        }else{
 
                        	    res.send("user name or password is invalid");
